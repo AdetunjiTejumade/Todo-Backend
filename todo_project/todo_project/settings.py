@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'todos.apps.TodosConfig',
 
     # 3rd party
-    'rest_framework'
+    'rest_framework',
+    'corsheaders'
+
 ]
 # rest_framework configuration settings
 REST_FRAMEWORK = {
@@ -53,13 +55,18 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # mine
+    'corsheaders.middleware.CorsMiddleware'
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    'http://localhost:8000'
+)
 ROOT_URLCONF = 'todo_project.urls'
 
 TEMPLATES = [
