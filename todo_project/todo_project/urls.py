@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('todos.url')), #connect to todos urls file
+    path('api/', include('todos.urls')),  # connect to todos urls file
 ]
